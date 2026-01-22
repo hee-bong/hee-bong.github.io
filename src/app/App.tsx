@@ -8,7 +8,46 @@ import { Footer } from "./components/Footer";
 
 const feedbackData = [
   {
-    id: 1,
+    name: "Anonymous",
+    role: "익명",
+    company: "",
+    feedback:
+      "일에 몰입하고자 하며, 팀원들이 더 편안하게 협업할 수 있도록 태도와 방식에서도 좋은 영향을 주기 위해 노력합니다. 새로운 과제나 변화에 대해 두려움 없이 긍정적으로 받아들입니다.",
+    date: "2026",
+  },
+  {
+    name: "Anonymous",
+    role: "익명",
+    company: "",
+    feedback:
+      "하는 일이 많음에도 불구하고 맡은 업무들을 잘 해결하고, 좋은 아이디어를 제시하여 팀의 발전에 큰 기여를 하고 있습니다.",
+    date: "2026",
+  },
+  {
+    name: "Anonymous",
+    role: "익명",
+    company: "",
+    feedback:
+      "팀의 기획과 개발 전반에 걸쳐 가장 많은 영역에서 영향력을 펼치고 있으며, 팀원들과 협력하기 위한 기반 작업과 핵심 기획 업무를 병행하며 주도적으로 일하는 모습이 인상적입니다.",
+    date: "2026",
+  },
+  {
+    name: "Anonymous",
+    role: "익명",
+    company: "",
+    feedback:
+      "새로운 기능을 기획하고 기존 기능을 개선하는 과정에서 고객을 정확히 이해하고 치열하게 고민하여, 사용자 관점과 완성도가 높은 결과물을 만들어냅니다. 지금까지 전달받은 기획안 중에서도 단연 완성도가 높은 기획안이라고 생각합니다.",
+    date: "2026",
+  },
+  {
+    name: "Anonymous",
+    role: "익명",
+    company: "",
+    feedback:
+      "일을 잘하는 것이 무엇인지, 센스 있게 일한다는 것이 어떤 것인지 잘 보여줍니다. 팀워크와 협업에서도 뛰어나며, 긍정적인 에너지가 매우 인상적입니다.",
+    date: "2026",
+  },
+  {
     name: "Anonymous",
     role: "익명",
     company: "",
@@ -17,7 +56,6 @@ const feedbackData = [
     date: "2025",
   },
   {
-    id: 2,
     name: "Anonymous",
     role: "익명",
     company: "",
@@ -26,7 +64,6 @@ const feedbackData = [
     date: "2025",
   },
   {
-    id: 3,
     name: "Anonymous",
     role: "익명",
     company: "",
@@ -35,7 +72,6 @@ const feedbackData = [
     date: "2025",
   },
   {
-    id: 4,
     name: "Anonymous",
     role: "익명",
     company: "",
@@ -43,7 +79,6 @@ const feedbackData = [
     date: "2025",
   },
   {
-    id: 5,
     name: "Anonymous",
     role: "익명",
     company: "",
@@ -52,7 +87,6 @@ const feedbackData = [
     date: "2024",
   },
   {
-    id: 6,
     name: "Anonymous",
     role: "익명",
     company: "",
@@ -61,7 +95,6 @@ const feedbackData = [
     date: "2024",
   },
   {
-    id: 7,
     name: "Anonymous",
     role: "익명",
     company: "",
@@ -70,7 +103,6 @@ const feedbackData = [
     date: "2024",
   },
   {
-    id: 8,
     name: "Anonymous",
     role: "익명",
     company: "",
@@ -138,7 +170,7 @@ function FeedbackPage() {
         <div className="space-y-8">
           {feedbackData.map((feedback, index) => (
             <motion.div
-              key={feedback.id}
+              key={index}
               initial={{ opacity: 0, y: -100 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
