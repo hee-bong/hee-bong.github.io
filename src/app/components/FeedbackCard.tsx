@@ -1,9 +1,7 @@
 import { motion } from "motion/react";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 interface Feedback {
-  name: string;
-  role: string;
-  company: string;
   feedback: string;
   date: string;
 }
@@ -14,6 +12,8 @@ interface FeedbackCardProps {
 }
 
 export function FeedbackCard({ feedback, index }: FeedbackCardProps) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -24,13 +24,7 @@ export function FeedbackCard({ feedback, index }: FeedbackCardProps) {
     >
       <div className="flex items-start justify-between mb-6">
         <div>
-          <h3 className="mb-1">{feedback.name}</h3>
-          {feedback.role && (
-            <p className="text-muted-foreground">
-              {feedback.role}
-              {feedback.company && ` · ${feedback.company}`}
-            </p>
-          )}
+          <h3 className="mb-1">{t.feedback.anonymous}</h3>
         </div>
         <span className="text-sm text-muted-foreground">{feedback.date}</span>
       </div>

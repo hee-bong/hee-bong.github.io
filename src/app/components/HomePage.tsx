@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { AsteriskDecoration } from "./AsteriskDecoration";
 import { Footer } from "./Footer";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 interface HomePageProps {
   onNavigateToFeedback: () => void;
@@ -8,6 +9,7 @@ interface HomePageProps {
 }
 
 export function HomePage({ onNavigateToFeedback, feedbackCount }: HomePageProps) {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Asterisk Decorations */}
@@ -60,7 +62,7 @@ export function HomePage({ onNavigateToFeedback, feedbackCount }: HomePageProps)
           >
             <AsteriskDecoration variant="filled" size="md" animate={false} />
             <span className="text-primary px-4 py-2 bg-secondary/50 rounded-full font-en">
-              Product Manager
+              {t.home.role}
             </span>
             <AsteriskDecoration variant="outlined" size="md" animate={false} />
           </motion.div>
@@ -72,7 +74,7 @@ export function HomePage({ onNavigateToFeedback, feedbackCount }: HomePageProps)
             className="mb-4 font-en"
             style={{ fontSize: "4rem", fontWeight: 700, lineHeight: 1.2 }}
           >
-            Hee Sung Kim
+            {t.home.name}
           </motion.h1>
         </motion.div>
       </section>

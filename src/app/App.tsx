@@ -5,10 +5,10 @@ import { AsteriskDecoration } from "./components/AsteriskDecoration";
 import { Navbar } from "./components/Navbar";
 import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
-import { feedbackData } from '../heebong';
-
+import { useLanguage } from "../contexts/LanguageContext";
 
 function FeedbackPage() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background relative overflow-hidden pt-24 pb-24">
       {/* Background Asterisk Decorations */}
@@ -45,26 +45,26 @@ function FeedbackPage() {
         >
           <div className="inline-flex items-center gap-3 mb-4">
             <AsteriskDecoration variant="eight" size="sm" animate={false} />
-            <span className="text-primary font-en">Feedback</span>
+            <span className="text-primary font-en">{t.nav.feedback}</span>
           </div>
           <h2 style={{ fontSize: "2.5rem", fontWeight: 600 }}>
-            함께 일한 동료들의 이야기
+            {t.feedback.title}
           </h2>
           <p className="text-muted-foreground mt-4">
-            여러 팀과 협업하며 받은 소중한 피드백들입니다
+            {t.feedback.subtitle}
           </p>
           <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-full">
-            <span className="text-primary">총</span>
+            <span className="text-primary">{t.feedback.total}</span>
             <span className="font-semibold text-primary" style={{ fontSize: "1.25rem" }}>
-              {feedbackData.length}
+              {t.feedbackData.length}
             </span>
-            <span className="text-primary">개의 피드백</span>
+            <span className="text-primary">{t.feedback.count}</span>
           </div>
         </motion.div>
 
         {/* Scrollable Feedback Cards */}
         <div className="space-y-8">
-          {feedbackData.map((feedback, index) => (
+          {t.feedbackData.map((feedback, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: -100 }}
@@ -90,18 +90,19 @@ function FeedbackPage() {
 
 export default function App() {
   const [currentView, setCurrentView] = useState<"home" | "feedback">("home");
+  const { t } = useLanguage();
 
   return (
     <>
       <Navbar
         currentPage={currentView}
         onNavigate={setCurrentView}
-        feedbackCount={feedbackData.length}
+        feedbackCount={t.feedbackData.length}
       />
       {currentView === "home" ? (
         <HomePage
           onNavigateToFeedback={() => setCurrentView("feedback")}
-          feedbackCount={feedbackData.length}
+          feedbackCount={t.feedbackData.length}
         />
       ) : (
         <FeedbackPage />
