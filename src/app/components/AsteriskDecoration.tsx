@@ -22,7 +22,7 @@ export function AsteriskDecoration({
 
   const variants = {
     simple: "*",
-    outlined: "✳",
+    outlined: "✽",
     filled: "✱",
     eight: "✲",
   };
